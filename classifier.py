@@ -16,21 +16,21 @@ data_table.info()
 data_table["Result"] = np.nan
 
 #defines keywords that identify if the product is smartphone related
-smartphone_keywords = ["smartphone", "phone", "celular", "iphone", "apple", "samsung", "asus", "motorolla", "xperia", "xiaomi", "nokia", "blackberry", "huawei", "android"]
+smartphone_keywords = ["smartphone", "phone", "celular", "iphone", "apple", "samsung", "asus", "motorolla", "xperia", "xiaomi", "nokia", "blackberry", "huawei", "android", "lg"]
 
 #loops through each row and checks for keywords in the product name. if positive, classifies the product as "Smartphone Related", or else, "Non-Smartphone Related"
 index = 0
-sp_count = 0
-nsp_count = 0
+sp_count = 0    #number of smartphone results
+nsp_count = 0   #number of non smartphone results
 for n in data_table["Name"]:
     #tokenize the product name, removing accents and special characters, converting to lowercase and splitting at spaces and commas
     unaccented_string = normalize('NFKD', n).encode('ASCII','ignore').decode('utf-8')
     tokens = unaccented_string.casefold().split(' ')
 
-    #substitute the product's name in the dataframe for the unnaccented one, for clarity
+    #substitute the product's name in the dataframe with the unnaccented one, for clarity
     data_table.loc[index, "Name"] = unaccented_string
 
-    #check if both lists have at least one element in common
+    #check if both lists have at least one element in common (if there is an intersection, that means at least one keyword is present in the product's title)
     if(set(tokens) & set(smartphone_keywords)):
         data_table.loc[index, "Result"] = "Smartphone Related"
         sp_count += 1
@@ -51,4 +51,3 @@ print("\nSmartphone related items: " + str(sp_count))
 print("Non-Smartphone related items: " + str(nsp_count))
 
 data_table.to_csv(r'csv_results_table.csv', index=None, header=True)
-data_table.to_csv(r'txt_results_table.txt', index=None, header=True)
