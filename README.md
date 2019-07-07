@@ -7,6 +7,7 @@ It takes a list of various products and classifies each one as Smartphone relate
 Some considerations and acknowledgement of a few possible problems present in the code:
 - Python is not one of my most familiar languages.
 - At first, I thought about using a Naive Bayes classifier, but using probability seemed overkill for this application, and also would require a testing set with known results, so I thought a more straightforward solution would be better.
+- There are no functions in the code because I think it was small and straightforward enough, and very understandable with just the comments.
 
 - Possible problem at line 19: All keywords were chosen by me, after a quick scan of the product names and popular smartphone brands. Maybe some automated process for defining keywords would make the results better.
 - Possible problem at line 27: I tried to remove accents and special characters (like "ã" to "a", "ç" to "c" and "ô" to "o"). Through some searching, I found these unicode functions, but the end result was not quite as expected. There probably is a better solution that I haven't found.
@@ -23,6 +24,7 @@ Ele tem como entrada uma lista de vários produtos e classifica cada um como rel
 Algumas considerações e reconhecimento de possíveis problemas presentes no código:
 - Python não é uma das minhas línguas mais familiares.
 - Inicialmente, eu pensei em usar um classificador Naive BAyes, mas usar probabilidade pareceu overkill para esse problema, e tambem exigiria um conjunto de testes com resultados conhecidos, então achei que uma solução mais simples e direta seria melhor.
+- Não há funções no código por que eu acho que ficou pequeno e direto o suficiente, e bem compreensível com apenas os comentários.
 
 - Possivel problema na linha 19: Todas as keywords foram escolhidas por mim, após uma análise rápida dos nomes de produtos e de marcas populares de smartphones. Talvez um processo automático para definir keywords tornasse os resultados melhores.
 - Possível problema na linha 27: Eu tentei remover acentos e caracteres especiais (como "ã" vira "a", "ç" vira "c" e "ô" vira "o"). Após pesquisar, eu achei essas funções de unicode, mas o resultado final não foi como esperado. Talvez haja uma solução melhor que eu não achei.
